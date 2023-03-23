@@ -1,0 +1,39 @@
+===============================================================
+In Node.js, sql.createconnection and sql.connect are functions in different libraries used to establish connections to SQL databases.
+
+sql.createconnection is a function in the mysql library, which is used to create a connection object to a MySQL database. It takes in various parameters such as user, password, host, database, etc., and returns a connection object which can be used to interact with the database.
+
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'yourusername',
+  password: 'yourpassword',
+  database: 'yourdatabase'
+});
+
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected!');
+});
+
+// Perform queries and interact with the database using the connection object
+
+connection.end((err) => {
+  if (err) throw err;
+  console.log('Connection closed!');
+});
+
+===============================================================
+In Broweser we can decode the Cokkie or Token into the 3 Parts which we set up whilemkaing the Token.
+1) Using atob to decode 
+2) btoa to recode from decoded
+
+// Perfomed this in console of Broweser Javascript
+
+atob("eyJpZCI6NSwiaWF0IjoxNjc4OTc0OTM5LCJleHAiOjE2ODY3NTA5Mzl9")
+'{"id":5,"iat":1678974939,"exp":1686750939}'
+btoa('{"id":5,"iat":1678974939,"exp":1686750939}')
+'eyJpZCI6NSwiaWF0IjoxNjc4OTc0OTM5LCJleHAiOjE2ODY3NTA5Mzl9'
+
+===============================================================
