@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const DB = require('./Database/db-config');
 const cookie = require('cookie-parser');
+app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
 
@@ -24,6 +25,6 @@ app.use('/api',auth_router);
 DB.connect((err)=>{
     if(err){throw err;}
     console.log('SQL Database Connected');
-    app.listen(PORT, console.log(`Listening on Port ${PORT}`));
+    app.listen(PORT, console.log(`Listening on Port ${PORT}\nRunning Server => \x1b[36mhttp://localhost:${PORT}\x1b[0m`));
 });
 
